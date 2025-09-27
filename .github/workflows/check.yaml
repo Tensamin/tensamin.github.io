@@ -30,7 +30,7 @@ jobs:
           cache: "npm"
 
       - name: Execute uptime checks
-        run: node scripts/check-uptime.js
+        run: node scripts/uptime.js
 
       - name: Add data to repository
         run: |
