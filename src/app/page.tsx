@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useState, useId, useMemo } from "react";
-import { Area, AreaChart, CartesianGrid, XAxis } from "recharts";
+import { Area, AreaChart, CartesianGrid, XAxis, YAxis } from "recharts";
 import {
   ChartConfig,
   ChartContainer,
@@ -82,9 +82,9 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="flex flex-col gap-15 p-15 h-full">
+    <div className="flex flex-col gap-15 p-15">
       <p className="text-4xl font-bold">Tensamin Satus</p>
-      <div className="flex gap-5 h-auto">
+      <div className="flex flex-col gap-5 w-full">
         {appData && (
           <Chart checks={appData.checks} url={appData.url} title="App" />
         )}
@@ -117,41 +117,65 @@ function Chart({
   title: string;
 }) {
   return (
-    <Card className="w-1/3">
+    <Card>
       <CardHeader>
         <CardTitle>{title}</CardTitle>
       </CardHeader>
       <CardContent>
-        <ChartContainer config={chartConfig}>
-          <AreaChart
-            accessibilityLayer
-            data={checks}
-            margin={{
-              left: 12,
-              right: 12,
-            }}
-          >
+        <ChartContainer config={chartConfig} className="h-50 w-full">
+          <AreaChart accessibilityLayer data={checks}>
             <CartesianGrid vertical={false} />
             <XAxis
+              name="Time"
               dataKey="t"
               tickLine={false}
               axisLine={false}
               tickMargin={8}
-              tickFormatter={(value) => value.slice(0, 3)}
+              tickFormatter={(value) => {
+                return new Intl.DateTimeFormat("en", {
+                  month: "short",
+                  day: "numeric",
+                  hour: "2-digit",
+                  minute: "2-digit",
+                  hour12: false,
+                  timeZone: "UTC",
+                }).format(new Date(value));
+              }}
+            />
+            <YAxis
+              name="Response Time"
+              dataKey="rt"
+              tickLine={false}
+              axisLine={false}
+              tickMargin={8}
+              tickFormatter={(value) => value + "ms"}
             />
             <ChartTooltip
               cursor={false}
-              content={<ChartTooltipContent indicator="line" />}
+              content={
+                <ChartTooltipContent
+                  indicator="line"
+                  labelFormatter={(value) => {
+                    return new Intl.DateTimeFormat("en", {
+                      month: "short",
+                      day: "numeric",
+                      hour: "2-digit",
+                      minute: "2-digit",
+                      hour12: false,
+                      timeZone: "UTC",
+                    }).format(new Date(value));
+                  }}
+                />
+              }
             />
             <Area
+              name="Response"
               dataKey="rt"
               type="natural"
               fill="var(--chart-2)"
               fillOpacity={0.4}
               stroke="var(--chart-2)"
-              stackId="a"
             />
-            <ChartLegend content={<ChartLegendContent />} />
           </AreaChart>
         </ChartContainer>
       </CardContent>
