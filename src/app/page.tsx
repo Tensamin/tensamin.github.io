@@ -1,12 +1,10 @@
 "use client";
 
-import React, { useEffect, useState, useId, useMemo } from "react";
+import React, { useEffect, useState } from "react";
 import { Area, AreaChart, CartesianGrid, XAxis, YAxis } from "recharts";
 import {
   ChartConfig,
   ChartContainer,
-  ChartLegend,
-  ChartLegendContent,
   ChartTooltip,
   ChartTooltipContent,
 } from "@/components/ui/chart";
@@ -30,13 +28,6 @@ type Data = {
   name: string;
   url: string;
   checks: Check[];
-};
-
-type UptimeChartProps = {
-  checks: Check[];
-  className?: string;
-  // Width of the color fade at ok-state boundaries (in % of chart width)
-  fadePct?: number; // default 1.5
 };
 
 const chartConfig = {
