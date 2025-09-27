@@ -1,0 +1,13 @@
+[
+  { "id": "app", "name": "App", "url": "https://tensamin.methanium.net" },
+  {
+    "id": "docs",
+    "name": "Documentation",
+    "url": "https://docs.tensamin.methanium.net"
+  },
+  {
+    "id": "auth",
+    "name": "Auth Server",
+    "url": "https://auth.tensamin.methanium.net"
+  }
+]
