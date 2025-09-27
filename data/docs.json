@@ -1,0 +1,13 @@
+{
+  "id": "docs",
+  "name": "Documentation",
+  "url": "https://docs.tensamin.methanium.net",
+  "checks": [
+    {
+      "t": "2025-09-27T18:31:26.403Z",
+      "ok": true,
+      "code": 200,
+      "rt": 482
+    }
+  ]
+}
