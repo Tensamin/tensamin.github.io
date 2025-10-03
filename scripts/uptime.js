@@ -9,6 +9,7 @@ const CONFIG = path.join(ROOT, "sites.json");
 const DATA_DIR = path.join(ROOT, "data");
 const TIMEOUT = 10_000;
 const MAX_CHECKS = 2000;
+const MAX_AGE_MS = 7 * 24 * 60 * 60 * 1000;
 
 async function ensureDir(p) {
   await fsp.mkdir(p, { recursive: true });
@@ -21,6 +22,15 @@ async function readJsonMaybe(p, def) {
   } catch {
     return def;
   }
+}
+
+function pruneChecks(checks, now = Date.now()) {
+  const cutoff = now - MAX_AGE_MS;
+  return checks.filter((check) => {
+    if (!check || !check.t) return false;
+    const ts = new Date(check.t).getTime();
+    return Number.isFinite(ts) && ts >= cutoff;
+  });
 }
 
 async function probe(url) {
@@ -66,6 +76,7 @@ async function probe(url) {
       code: r.status,
       rt: r.responseTime,
     });
+    prev.checks = pruneChecks(prev.checks);
     if (prev.checks.length > MAX_CHECKS) {
       prev.checks = prev.checks.slice(-MAX_CHECKS);
     }
