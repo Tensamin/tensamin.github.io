@@ -4,12 +4,6 @@
   "url": "https://docs.tensamin.methanium.net",
   "checks": [
     {
-      "t": "2025-09-30T12:19:45.600Z",
-      "ok": true,
-      "code": 200,
-      "rt": 375
-    },
-    {
       "t": "2025-09-30T13:02:42.855Z",
       "ok": true,
       "code": 200,
@@ -3362,6 +3356,12 @@
       "ok": true,
       "code": 200,
       "rt": 431
+    },
+    {
+      "t": "2025-10-07T12:33:16.338Z",
+      "ok": false,
+      "code": null,
+      "rt": null
     }
   ]
 }
