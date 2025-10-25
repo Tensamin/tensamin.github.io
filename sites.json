@@ -2,17 +2,17 @@
   {
     "id": "homepage",
     "name": "Homepage",
-    "url": "https://tensamin.methanium.net"
+    "url": "https://tensamin.net"
   },
-  { "id": "app", "name": "App", "url": "https://tensamin.methanium.net/app/" },
+  { "id": "app", "name": "App", "url": "https://app.tensamin.net/" },
   {
     "id": "docs",
     "name": "Documentation",
-    "url": "https://tensamin.methanium.net/docs/"
+    "url": "https://docs.tensamin.net/"
   },
   {
     "id": "auth",
     "name": "Auth Server",
-    "url": "https://auth.tensamin.methanium.net"
+    "url": "https://auth.tensamin.net"
   }
 ]
