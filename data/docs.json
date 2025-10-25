@@ -1,0 +1,13 @@
+{
+  "id": "docs",
+  "name": "Documentation",
+  "url": "https://docs.tensamin.net/",
+  "checks": [
+    {
+      "t": "2025-10-25T18:38:36.487Z",
+      "ok": true,
+      "code": 200,
+      "rt": 608
+    }
+  ]
+}
