@@ -8,7 +8,7 @@ const ROOT = process.cwd();
 const CONFIG = path.join(ROOT, "sites.json");
 const DATA_DIR = path.join(ROOT, "data");
 const TIMEOUT = 10_000;
-const MAX_CHECKS = 2000;
+const MAX_CHECKS = 200;
 const MAX_AGE_MS = 7 * 24 * 60 * 60 * 1000;
 
 async function ensureDir(p) {

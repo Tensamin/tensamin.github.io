@@ -4,7 +4,7 @@
     "name": "Homepage",
     "url": "https://tensamin.net"
   },
-  { "id": "app", "name": "App", "url": "https://app.tensamin.net/" },
+  { "id": "app", "name": "Client", "url": "https://app.tensamin.net/" },
   {
     "id": "docs",
     "name": "Documentation",
@@ -12,7 +12,7 @@
   },
   {
     "id": "auth",
-    "name": "Auth Server",
+    "name": "Authentication Server",
     "url": "https://auth.tensamin.net"
   }
 ]

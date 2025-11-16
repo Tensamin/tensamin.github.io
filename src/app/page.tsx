@@ -1,7 +1,10 @@
 "use client";
 
+// Package Imports
 import React, { useEffect, useState } from "react";
 import { Area, AreaChart, CartesianGrid, XAxis, YAxis } from "recharts";
+
+// Components
 import {
   ChartConfig,
   ChartContainer,
@@ -16,6 +19,7 @@ import {
   CardFooter,
 } from "@/components/ui/card";
 
+// Types
 type Check = {
   t: string;
   ok: boolean;
@@ -30,6 +34,7 @@ type Data = {
   checks: Check[];
 };
 
+// Main
 const chartConfig = {
   responseTime: {
     label: "Response Time (ms)",
@@ -77,13 +82,13 @@ export default function Home() {
       <p className="text-4xl font-bold">Tensamin Satus</p>
       <div className="flex flex-col gap-5 w-full">
         {appData && (
-          <Chart checks={appData.checks} url={appData.url} title="App" />
+          <Chart checks={appData.checks} url={appData.url} title="Client" />
         )}
         {authData && (
           <Chart
             checks={authData.checks}
             url={authData.url}
-            title="Auth Server"
+            title="Authentication Server"
           />
         )}
         {docsData && (
