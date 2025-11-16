@@ -9,7 +9,7 @@ const CONFIG = path.join(ROOT, "sites.json");
 const DATA_DIR = path.join(ROOT, "data");
 const TIMEOUT = 10_000;
 const MAX_CHECKS = 200;
-const MAX_AGE_MS = 7 * 24 * 60 * 60 * 1000;
+const MAX_AGE_MS = 2 * 24 * 60 * 60 * 1000; // 2 days
 
 async function ensureDir(p) {
   await fsp.mkdir(p, { recursive: true });
